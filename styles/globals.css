@@ -2,4 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.main {
+	width: 100vw;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	padding: 20px 40px;
+	background-color: #000000;
+	background-image: linear-gradient(205deg, #000000 0%, #2f1b14 74%);
+}
 
+.head_text {
+	@apply mt-5 text-5xl leading-[1.15] text-gray-100 sm:text-6xl;
+}
