@@ -1,5 +1,7 @@
 import { Open_Sans } from "next/font/google";
 
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 import "@styles/globals.css";
 
 const openSans = Open_Sans({
@@ -16,7 +18,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={openSans.className}>
-				<main className="main">{children}</main>
+				<Provider>
+					<main className="main flex-col">
+						<Nav />
+						{children}
+					</main>
+				</Provider>
 			</body>
 		</html>
 	);

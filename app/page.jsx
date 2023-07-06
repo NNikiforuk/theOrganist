@@ -1,3 +1,5 @@
+import Feed from "@components/Feed";
+
 const Home = () => {
 	return (
 		<section className="w-full flex-center flex-col">
@@ -7,7 +9,7 @@ const Home = () => {
 					Plan your track list for ceremonies
 				</p>
 
-				{/* Feed */}
+				<Feed />
 			</h1>
 		</section>
 	);
