@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
+import { connectMongo } from "@utils/database";
+
 const handler = NextAuth({
 	providers: [
 		GoogleProvider({
@@ -14,10 +16,9 @@ const handler = NextAuth({
 		},
 		async signIn({ profile }) {
 			try {
-
-			} catch (error) {
+				await connectMongo();
 				
-			}
+			} catch (error) {}
 		},
 	},
 });
