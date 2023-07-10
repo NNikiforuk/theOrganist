@@ -2,25 +2,27 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { getProviders, signIn, signOut } from "next-auth/react";
+import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { Bars3Icon, UserIcon } from "@heroicons/react/24/solid";
 
 const Nav = () => {
-	const isUserLogged = true;
+	const { data: session } = useSession();
 
 	const [providers, setProviders] = useState(null);
 	const [toggleBurger, setToggleBurger] = useState(false);
+	// const [mounted, setMounted] = useState(false);
+
+	// useEffect(() => setMounted(true), []);
 
 	useEffect(() => {
-		const reachProviders = async () => {
+		(async () => {
 			const response = await getProviders();
 			setProviders(response);
-		};
-
-		reachProviders();
+		})();
 	}, []);
 
+	// if (!mounted) return null;
 	return (
 		<div>
 			<nav className="flex justify-between w-full mb-16 pt-3">
@@ -37,7 +39,7 @@ const Nav = () => {
 
 				{/* Mobile Nav */}
 				<div className="sm:hidden flex relative">
-					{isUserLogged ? (
+					{session?.user ? (
 						<div className="flex">
 							<Bars3Icon
 								onClick={() => setToggleBurger((prev) => !prev)}
@@ -75,22 +77,27 @@ const Nav = () => {
 					) : (
 						<>
 							{providers &&
-								Object.values(providers).map((provider) => (
-									<button
-										key={provider.name}
-										onClick={() => signIn(provider.id)}
-										className="gray_btn"
-									>
-										Sign in
-									</button>
-								))}
+								Object.values(providers).map((provider) => {
+									console.log("Creating button for provider: ", provider.id);
+									return (
+										<button
+											key={provider.name}
+											onClick={() => {
+												signIn(provider.id);
+											}}
+											className="gray_btn"
+										>
+											Sign in
+										</button>
+									);
+								})}
 						</>
 					)}
 				</div>
 
 				{/* Desktop Nav */}
 				<div className="sm:flex hidden">
-					{isUserLogged ? (
+					{session?.user ? (
 						<div className="flex gap-3 md:gap-5">
 							<Link href="/add-song" className="nav_link">
 								Add song

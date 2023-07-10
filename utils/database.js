@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let isConnected = false;
 
-const connectMongo = async () => {
+export const connectMongo = async () => {
 	mongoose.set("strictQuery", true);
 
 	if (isConnected) {
@@ -23,5 +23,3 @@ const connectMongo = async () => {
 		console.log(error);
 	}
 };
-
-export default connectMongo;
