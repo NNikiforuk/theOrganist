@@ -11,9 +11,9 @@ const Nav = () => {
 
 	const [providers, setProviders] = useState(null);
 	const [toggleBurger, setToggleBurger] = useState(false);
-	// const [mounted, setMounted] = useState(false);
+	const [mounted, setMounted] = useState(false);
 
-	// useEffect(() => setMounted(true), []);
+	useEffect(() => setMounted(true), []);
 
 	useEffect(() => {
 		(async () => {
@@ -22,7 +22,7 @@ const Nav = () => {
 		})();
 	}, []);
 
-	// if (!mounted) return null;
+	if (!mounted) return null;
 	return (
 		<div>
 			<nav className="flex justify-between w-full mb-16 pt-3">
@@ -78,7 +78,6 @@ const Nav = () => {
 						<>
 							{providers &&
 								Object.values(providers).map((provider) => {
-									console.log("Creating button for provider: ", provider.id);
 									return (
 										<button
 											key={provider.name}

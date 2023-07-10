@@ -21,7 +21,6 @@ const handler = NextAuth({
 			return session;
 		},
 		async signIn({ profile }) {
-			console.log("signIn");
 
 			try {
 				await connectMongo();
@@ -31,7 +30,6 @@ const handler = NextAuth({
 				});
 
 				if (!userExists) {
-					console.log(`Creating user with ${profile.email} ${profile.name}`);
 
 					await User.create({
 						email: profile.email,
