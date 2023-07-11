@@ -37,3 +37,10 @@
 .nav_link {
 	@apply md:text-2xl text-center text-base flex items-center justify-center font-bold text-stone-700;
 }
+
+.form_textarea {
+	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400;
+}
+.form_item {
+	@apply text-gray-200 cursor-pointer px-4 py-2 text-xs rounded-2xl font-bold hover:bg-black;
+}
