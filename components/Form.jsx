@@ -1,7 +1,23 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
 
 const Form = ({ type, song, setSong, submitting, addSong }) => {
+	const [periods, setPeriods] = useState([
+		"Advent",
+		"Christmas",
+		"Ordinary",
+		"Lent",
+		"Triduum",
+		"Easter",
+	]);
+
+	const choosePeriod = (e) => {
+		setPeriods(e.target.value);
+		setSong({ ...song, tag: e.target.value });
+	};
+
 	return (
 		<section className="text-center static lg:m-10">
 			<h1 className="logo_text text-xl md:text-4xl lg:text-3xl xl:text-xl">
@@ -27,48 +43,13 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 					</span>
 
 					<div className="flex flex-wrap gap-2 justify-center mt-2 md:mt-4 md:gap-4">
-						<button
-							type="button"
-							className="tag bg-red-400"
-							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
-						>
-							Advent
-						</button>
-						<button
-							type="button"
-							className="tag bg-yellow-500"
-							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
-						>
-							Christmas
-						</button>
-						<button
-							type="button"
-							className="tag bg-green-400"
-							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
-						>
-							Ordinary
-						</button>
-						<button
-							type="button"
-							className="tag bg-gray-400"
-							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
-						>
-							Lent
-						</button>
-						<button
-							type="button"
-							className="tag bg-pink-400"
-							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
-						>
-							Triduum
-						</button>
-						<button
-							type="button"
-							className="tag bg-orange-500"
-							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
-						>
-							Easter
-						</button>
+						<select className="form_textarea w-full">
+							{periods.map((period) => (
+								<option key={period} value={period} onChange={choosePeriod}>
+									{period}
+								</option>
+							))}
+						</select>
 					</div>
 				</label>
 
@@ -83,7 +64,7 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 					<button
 						type="submit"
 						disabled={submitting}
-						className="px-5 py-1.5 ml-5 text-white bg-slate-800 rounded-2xl md:rounded-full md:px-6 md:py-3 cursor-pointer xl:hover:text-black"
+						className="px-5 py-1.5 ml-5 text-white bg-gray-700 rounded-2xl md:rounded-full md:px-6 md:py-3 cursor-pointer xl:hover:text-black"
 					>
 						{submitting ? `${type}...` : type}
 					</button>
