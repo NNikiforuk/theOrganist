@@ -39,8 +39,8 @@
 }
 
 .form_textarea {
-	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400;
+	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400 md:mt-4 md:text-2xl;
 }
-.form_item {
-	@apply text-gray-200 cursor-pointer px-4 py-2 text-xs rounded-2xl font-bold hover:bg-black;
+.tag {
+	@apply text-gray-200 cursor-pointer px-4 py-2 text-xs rounded-2xl font-bold hover:bg-black md:text-2xl md:px-6 md:py-4 md:rounded-full;
 }

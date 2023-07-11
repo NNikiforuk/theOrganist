@@ -8,7 +8,7 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 
 			<form onSubmit={addSong} className="mt-5">
 				<label className="text-gray-700 flex flex-col text-left mt-2">
-					<span className="font-semibold">Title</span>
+					<span className="font-semibold md:text-2xl">Title</span>
 
 					<textarea
 						value={song.title}
@@ -20,41 +20,41 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 				</label>
 
 				<label className="text-gray-700 flex flex-col text-left mt-5">
-					<span className="font-semibold">Liturgical period</span>
+					<span className="font-semibold md:text-2xl">Liturgical period</span>
 
-					<ul className="flex flex-wrap gap-2 justify-center mt-2">
+					<ul className="flex flex-wrap gap-2 justify-center mt-2 md:mt-4 md:gap-4">
 						<li
-							className="form_item bg-red-400"
+							className="tag bg-red-400"
 							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
 						>
 							Advent
 						</li>
 						<li
-							className="form_item bg-yellow-500"
+							className="tag bg-yellow-500"
 							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
 						>
 							Christmas
 						</li>
 						<li
-							className="form_item bg-green-400"
+							className="tag bg-green-400"
 							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
 						>
 							Ordinary
 						</li>
 						<li
-							className="form_item bg-gray-400"
+							className="tag bg-gray-400"
 							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
 						>
 							Lent
 						</li>
 						<li
-							className="form_item bg-pink-400"
+							className="tag bg-pink-400"
 							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
 						>
 							Triduum
 						</li>
 						<li
-							className="form_item bg-orange-500"
+							className="tag bg-orange-500"
 							onClick={(e) => setSong({ ...song, tag: e.target.textContent })}
 						>
 							Easter
@@ -62,7 +62,7 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 					</ul>
 				</label>
 
-				<div className="text-end absolute bottom-0 right-0 m-5">
+				<div className="text-end absolute bottom-0 right-0 m-5 md:text-2xl">
 					<Link href="/" className="text-gray-700 font-semibold">
 						Cancel
 					</Link>
@@ -70,7 +70,7 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 					<button
 						type="submit"
 						disabled={submitting}
-						className="px-5 py-1.5 ml-5 text-white bg-gray-700 rounded-2xl"
+						className="px-5 py-1.5 ml-5 text-white bg-gray-700 rounded-2xl md:rounded-full md:px-6 md:py-3 cursor-pointer"
 					>
 						{submitting ? `${type}...` : type}
 					</button>
