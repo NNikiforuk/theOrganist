@@ -3,7 +3,7 @@ import React from "react";
 
 const Form = ({ type, song, setSong, submitting, addSong }) => {
 	return (
-		<section className="text-center">
+		<section className="text-center static">
 			<h1 className="logo_text text-xl md:text-4xl lg:text-3xl">{type} Post</h1>
 
 			<form onSubmit={addSong} className="mt-5">
@@ -62,12 +62,16 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 					</ul>
 				</label>
 
-				<div className="mt-40 text-end">
+				<div className="text-end absolute bottom-0 right-0 m-5">
 					<Link href="/" className="text-gray-700 font-semibold">
 						Cancel
 					</Link>
 
-					<button type="submit" disabled={submitting} className="px-5 py-1.5 ml-5 text-white bg-gray-700 rounded-2xl">
+					<button
+						type="submit"
+						disabled={submitting}
+						className="px-5 py-1.5 ml-5 text-white bg-gray-700 rounded-2xl"
+					>
 						{submitting ? `${type}...` : type}
 					</button>
 				</div>
