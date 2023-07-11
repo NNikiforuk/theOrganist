@@ -35,12 +35,12 @@
 }
 
 .nav_link {
-	@apply md:text-2xl text-center text-base flex items-center justify-center font-bold text-stone-700;
+	@apply md:text-2xl text-center text-base flex items-center justify-center font-bold text-stone-700 xl:text-lg xl:hover:text-black;
 }
 
 .form_textarea {
-	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400 md:mt-4 md:text-2xl;
+	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400 md:mt-4 md:text-2xl xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 xl:text-center;
 }
 .tag {
-	@apply text-gray-200 cursor-pointer px-4 py-2 text-xs rounded-2xl font-bold hover:bg-black md:text-2xl md:px-6 md:py-4 md:rounded-full;
+	@apply text-gray-200 cursor-pointer px-4 py-2 text-xs rounded-2xl font-bold md:text-2xl md:px-6 md:py-4 md:rounded-full xl:text-sm focus:bg-slate-800;
 }

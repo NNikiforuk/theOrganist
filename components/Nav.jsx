@@ -107,7 +107,7 @@ const Nav = () => {
 							</button>
 
 							<Link href="/profile">
-								<UserIcon className="h-10 w-10 text-stone-700" />
+								<UserIcon className="h-10 w-10 text-stone-700 xl:hover:text-black" />
 							</Link>
 						</div>
 					) : (
