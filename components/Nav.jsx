@@ -26,7 +26,7 @@ const Nav = () => {
 	return (
 		<div>
 			<nav className="flex justify-between w-full mb-16 pt-3">
-				<Link href="/" className="flex gap-2 flex-center md:w-14 md:h-14">
+				<Link href="/" className="flex gap-2 md:w-14 md:h-14">
 					<Image
 						src="/assets/images/lotus-with-hands-g701b72ce1_1280.png"
 						alt="site logo"

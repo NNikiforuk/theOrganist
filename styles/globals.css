@@ -55,3 +55,25 @@ html {
 .search_input {
 	@apply rounded-lg p-3 text-sm text-gray-400 w-full text-center md:text-2xl md:w-96 xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5;
 }
+
+.song_list {
+	@apply mt-5 md:max-w-md md:my-0 md:mx-auto md:mt-10 xl:grid xl:grid-cols-4 xl:gap-4 xl:max-w-full xl:m-10;
+}
+
+.song {
+	@apply mb-3 flex justify-between border-dotted border-2	p-2;
+}
+
+.copy_btn {
+	@apply w-7 h-7 rounded-full bg-gray-400 flex justify-center items-center cursor-pointer md:h-10 md:w-10;
+}
+
+.copy_icon {
+	@apply h-4 w-4 text-gray-200 cursor-pointer md:h-6 md:w-6;
+}
+.song_desc {
+	@apply text-gray-500 text-sm md:text-2xl xl:text-xl;
+}
+.song_tag {
+	@apply font-semibold relative text-sm inline-block rounded-full md:text-2xl xl:text-xl;
+}
