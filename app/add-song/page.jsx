@@ -10,7 +10,7 @@ const AddSong = () => {
 	const router = useRouter();
 	const { data: session } = useSession();
 
-	const [submitting, setSubmitting] = useState(false);
+	const [showError, setShowError] = useState(false);
 	const [song, setSong] = useState({
 		title: "",
 		tag: "",
@@ -18,25 +18,30 @@ const AddSong = () => {
 
 	const addSong = async (e) => {
 		e.preventDefault();
-		setSubmitting(true);
 
-		try {
-			const response = await fetch("/api/song/new", {
-				method: "POST",
-				body: JSON.stringify({
-					title: song.title,
-					userId: session?.user.id,
-					tag: song.tag,
-				}),
-			});
+		if (song.title === "" || song.tag === "default") {
+			setShowError(true);
 
-			if (response.ok) {
-				router.push("/");
+		} else {
+			setShowError(false);
+
+
+			try {
+				const response = await fetch("/api/song/new", {
+					method: "POST",
+					body: JSON.stringify({
+						title: song.title,
+						userId: session?.user.id,
+						tag: song.tag,
+					}),
+				});
+
+				if (response.ok) {
+					router.push("/");
+				}
+			} catch (error) {
+				console.log(error);
 			}
-		} catch (error) {
-			console.log(error);
-		} finally {
-			setSubmitting(false);
 		}
 	};
 
@@ -46,8 +51,8 @@ const AddSong = () => {
 				type="Add"
 				song={song}
 				setSong={setSong}
-				submitting={submitting}
 				addSong={addSong}
+				showError={showError}
 			/>
 		</div>
 	);
