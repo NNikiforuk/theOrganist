@@ -4,17 +4,34 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Form = ({ type, song, setSong, submitting, addSong }) => {
-	const [periods, setPeriods] = useState([
-		"Advent",
-		"Christmas",
-		"Ordinary",
-		"Lent",
-		"Triduum",
-		"Easter",
-	]);
+	const periods = [
+		{
+			label: "Advent",
+			value: "advent",
+		},
+		{
+			label: "Christmas",
+			value: "christmas",
+		},
+		{
+			label: "Ordinary",
+			value: "ordinary",
+		},
+		{
+			label: "Lent",
+			value: "lent",
+		},
+		{
+			label: "Triduum",
+			value: "triduum",
+		},
+		{
+			label: "Easter",
+			value: "easter",
+		},
+	];
 
 	const choosePeriod = (e) => {
-		setPeriods(e.target.value);
 		setSong({ ...song, tag: e.target.value });
 	};
 
@@ -43,10 +60,10 @@ const Form = ({ type, song, setSong, submitting, addSong }) => {
 					</span>
 
 					<div className="flex flex-wrap gap-2 justify-center mt-2 md:mt-4 md:gap-4">
-						<select className="form_textarea w-full">
+						<select className="form_textarea w-full" onChange={choosePeriod}>
 							{periods.map((period) => (
-								<option key={period} value={period} onChange={choosePeriod}>
-									{period}
+								<option key={period.value} value={period.value}>
+									{period.label}
 								</option>
 							))}
 						</select>

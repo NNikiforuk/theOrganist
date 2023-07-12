@@ -1,24 +1,25 @@
 import { connectMongo } from "@utils/database";
-import Song from "@models/song";
+import Title from "@models/title";
 
-const POST = async (request) => {
-	const { title, userId, tag } = request.json();
+export const POST = async (req) => {
+	const { title, userId, tag } = await req.json();
 
 	try {
 		await connectMongo();
 
-		const newSong = new Song({
+		const newTitle = new Title({
 			creator: userId,
 			title,
 			tag,
 		});
 
-		await newSong.save();
-		return new Response(JSON.stringify(newSong), {
+		await newTitle.save();
+		return new Response(JSON.stringify(newTitle), {
 			status: 201,
 		});
 	} catch (error) {
-		return new Response("Failed to add the song", {
+		console.error(error);
+		return new Response(`Failed to add the song, due to error: ${error}`, {
 			status: 500,
 		});
 	}
