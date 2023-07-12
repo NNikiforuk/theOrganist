@@ -45,7 +45,7 @@ const Form = ({ type, song, setSong, addSong }) => {
 								<option
 									key={period.value}
 									value={period.value}
-									className=" form_option"
+									className=" md:text-sm"
 								>
 									{period.label}
 								</option>

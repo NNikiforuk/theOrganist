@@ -17,7 +17,7 @@ html {
 }
 
 .head_text {
-	@apply mt-10 text-xl  text-gray-500 md:text-4xl lg:text-3xl;
+	@apply text-xl  text-gray-500 md:text-4xl lg:text-3xl;
 }
 .logo_text {
 	@apply text-red-400 font-bold;
@@ -46,13 +46,12 @@ html {
 	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400 md:mt-4 md:text-xl md:w-96 md:my-0 md:mx-auto xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 xl:text-center;
 }
 
-.form_option {
-	@apply md:text-sm
-}
-/* .form_option {
-	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400 md:mt-4 md:text-2xl xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 xl:text-center;
-} */
+/* Feed */
 
-/* .feed {
-	@apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
-} */
+.feed {
+	@apply mt-10;
+}
+
+.search_input {
+	@apply rounded-lg p-3 text-sm text-gray-400 w-full text-center md:text-2xl md:w-96 xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5;
+}

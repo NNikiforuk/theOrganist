@@ -2,14 +2,43 @@
 
 import { useState, useEffect } from "react";
 
-import Song from "./Song";
+import Song_list from "./Song_list";
 
 const Feed = () => {
-  return (
-    <section className="feed">
-      feed
-    </section>
-  )
-}
+	const [searchText, setSearchText] = useState("");
+	const [songs, setSongs] = useState([]);
 
-export default Feed
+	const handleSearch = (e) => {
+		setSearchText(e.target.value);
+	};
+
+	const fetchSongs = async () => {
+		const response = await fetch("/api/song");
+		const data = await response.json();
+
+		setSongs(data);
+	};
+
+	useEffect(() => {
+		fetchSongs();
+	}, []);
+
+	return (
+		<section className="feed">
+			<form>
+				<input
+					type="text"
+					placeholder="Search for a song or a tag"
+					value={searchText}
+					onChange={handleSearch}
+					required
+					className="search_input"
+				/>
+			</form>
+
+			<Song_list songs={songs} handleTagClick={() => {}} />
+		</section>
+	);
+};
+
+export default Feed;
