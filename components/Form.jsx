@@ -1,17 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
 import { periods } from "@utils/periods";
-import Toast from "./Toast";
 
-const Form = ({ type, song, setSong, addSong, showError }) => {
+const Form = ({ type, song, setSong, addSong }) => {
 	const choosePeriod = (e) => {
-		setSong((prevSong) => ({
-			...prevSong,
+		setSong({
+			...song,
 			tag: e.target.value,
-		}));
+		});
 	};
 
 	return (
@@ -39,15 +37,7 @@ const Form = ({ type, song, setSong, addSong, showError }) => {
 					</span>
 
 					<div className="flex flex-wrap gap-2 justify-center mt-2 md:mt-4 md:gap-4">
-						<select
-							className="form_textarea w-full"
-							onChange={choosePeriod}
-							defaultValue="default"
-						>
-							<option value="default" disabled>
-								Select time period
-							</option>
-
+						<select className="form_textarea w-full" onChange={choosePeriod}>
 							{periods.map((period) => (
 								<option key={period.value} value={period.value}>
 									{period.label}
@@ -56,12 +46,6 @@ const Form = ({ type, song, setSong, addSong, showError }) => {
 						</select>
 					</div>
 				</label>
-
-				{showError && (
-					<>
-						<Toast />
-					</>
-				)}
 
 				<div className="text-end absolute bottom-0 right-0 m-5 md:text-2xl lg:text-3xl lg:m-10 xl:text-sm">
 					<Link
@@ -74,7 +58,6 @@ const Form = ({ type, song, setSong, addSong, showError }) => {
 					<button
 						type="submit"
 						className="px-5 py-1.5 ml-5 text-white bg-gray-700 rounded-2xl md:rounded-full md:px-6 md:py-3 cursor-pointer xl:hover:text-black"
-						disabled={showError}
 					>
 						{type}
 					</button>

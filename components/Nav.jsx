@@ -34,6 +34,7 @@ const Nav = () => {
 						height={30}
 						className="object-contain"
 						style={{ width: "auto", height: "auto" }}
+						priority={false}
 					/>
 				</Link>
 
