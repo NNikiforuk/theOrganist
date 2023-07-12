@@ -19,7 +19,7 @@ const Form = ({ type, song, setSong, addSong }) => {
 			</h1>
 
 			<form onSubmit={addSong} className="mt-5 xl:mt-20">
-				<label className="text-gray-700 flex flex-col text-left mt-2 xl:text-center">
+				<label className="text-gray-700 flex flex-col mt-2 text-center">
 					<span className="font-semibold md:text-2xl xl:text-lg">Title</span>
 
 					<textarea
@@ -31,15 +31,22 @@ const Form = ({ type, song, setSong, addSong }) => {
 					/>
 				</label>
 
-				<label className="text-gray-700 flex flex-col text-left mt-5">
+				<label className="text-gray-700 flex flex-col text-center mt-5">
 					<span className="font-semibold md:text-2xl xl:text-lg xl:text-center">
 						Liturgical period
 					</span>
 
 					<div className="flex flex-wrap gap-2 justify-center mt-2 md:mt-4 md:gap-4">
-						<select className="form_textarea w-full" onChange={choosePeriod}>
+						<select
+							className="form_textarea outline-none"
+							onChange={choosePeriod}
+						>
 							{periods.map((period) => (
-								<option key={period.value} value={period.value}>
+								<option
+									key={period.value}
+									value={period.value}
+									className=" form_option"
+								>
 									{period.label}
 								</option>
 							))}

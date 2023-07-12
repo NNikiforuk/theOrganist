@@ -1,10 +1,14 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
+import Song from "./Song";
+
 const Feed = () => {
   return (
-    <div>
-      Feed //to do
-    </div>
+    <section className="feed">
+      feed
+    </section>
   )
 }
 
