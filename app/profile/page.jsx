@@ -12,16 +12,16 @@ const MyProfile = () => {
 
 	const [songs, setSongs] = useState([]);
 
-	const fetchSongs = async () => {
-		const response = await fetch(`/api/users/${session?.user.id}/songs`);
-		const data = await response.json();
-
-		if (session?.user.id) setSongs(data);
-	};
-
 	useEffect(() => {
-		fetchSongs();
-	}, []);
+		const fetchPosts = async () => {
+			const response = await fetch(`/api/users/${session?.user.id}/songs`);
+			const data = await response.json();
+
+			setSongs(data);
+		};
+
+		if (session?.user.id) fetchPosts();
+	}, [session?.user.id]);
 
 	const handleEdit = (song) => {
 		router.push(`/update-song?id=${song._id}`);
@@ -36,7 +36,7 @@ const MyProfile = () => {
 					method: "DELETE",
 				});
 
-				const filteredSongs = songs.filter((song) => song._id !== song._id);
+				const filteredSongs = songs.filter((item) => item._id !== song._id);
 				setSongs(filteredSongs);
 			} catch (error) {
 				console.log(error);

@@ -14,7 +14,7 @@ const AddSong = () => {
 		tag: "advent",
 	});
 
-	const addSong = async (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		try {
@@ -36,7 +36,7 @@ const AddSong = () => {
 	};
 	return (
 		<div>
-			<Form type="Add" song={song} setSong={setSong} addSong={addSong} />
+			<Form type="Add" song={song} setSong={setSong} handleSubmit={handleSubmit} />
 		</div>
 	);
 };

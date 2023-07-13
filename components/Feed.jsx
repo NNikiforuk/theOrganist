@@ -37,6 +37,7 @@ const Feed = () => {
 			</form>
 
 			<Song_list songs={songs} />
+			
 		</section>
 	);
 };

@@ -61,7 +61,7 @@ html {
 }
 
 .song {
-	@apply mb-3 flex justify-between border-dotted border-2	p-2 flex-col;
+	@apply mb-3 flex justify-between border-dotted border-2	p-2 flex-col cursor-pointer;
 }
 
 .copy_btn {

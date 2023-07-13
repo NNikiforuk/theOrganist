@@ -38,7 +38,7 @@ export const PATCH = async (req, { params }) => {
 
 export const DELETE = async (req, { params }) => {
 	try {
-		connectMongo();
+		await connectMongo();
 
 		await Title.findByIdAndRemove(params.id);
 		return new Response("Song deleted successfully", { status: 200 });
