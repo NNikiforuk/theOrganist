@@ -46,10 +46,8 @@ html {
 	@apply rounded-lg min-h-min mt-1 p-3 text-sm text-gray-400 md:mt-4 md:text-xl md:w-96 md:my-0 md:mx-auto xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 xl:text-center;
 }
 
-/* Feed */
-
 .feed {
-	@apply mt-10;
+	@apply mt-5;
 }
 
 .search_input {
@@ -90,7 +88,7 @@ html {
 }
 
 .track {
-	@apply mb-3 flex;
+	@apply mb-3 flex flex-col;
 }
 
 .track_label {
@@ -99,4 +97,8 @@ html {
 
 .track_input {
 	@apply rounded-lg p-2 text-sm text-gray-500 w-full text-center md:text-2xl md:w-96 xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 bg-transparent border-b-2 border-solid border-x-green-800 font-bold;
+}
+
+.track_icon {
+	@apply w-9 h-9 text-gray-400 cursor-pointer;
 }

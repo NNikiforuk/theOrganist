@@ -1,17 +1,56 @@
+"use client";
+
+import { useState } from "react";
+import { PlusCircleIcon, MinusCircleIcon } from "@heroicons/react/24/solid";
+
 import { song_types } from "@utils/song_types";
 
 const Track = () => {
+	const [toggleTrack, setToggleTrack] = useState(false);
+	const [trackValues, setTrackValues] = useState({
+		Entrance: "",
+		Gifts_preparation: "",
+		Communion: "",
+		Adoration: "",
+		Farewell: "",
+	});
+
+	const TrackIcon = toggleTrack ? MinusCircleIcon : PlusCircleIcon;
+
+	const handleTrackInputs = (song_type, e) => {
+		setTrackValues((prevValues) => ({
+			...prevValues,
+			[song_type]: e.target.value,
+		}));
+
+		console.log(trackValues)
+	};
+
 	return (
 		<div className="track">
-			<form>
+			<div className="flex justify-center items-center w-full">
+				<TrackIcon
+					className="track_icon"
+					onClick={() => setToggleTrack((prev) => !prev)}
+				/>
+			</div>
 
-				{song_types.map((song_type) => (
-					<label className="track_label">
-						{song_type}
-						<input type="text" className="track_input" />
-					</label>
-				))}
-			</form>
+			{toggleTrack && (
+				<form>
+					{song_types.map((song_type) => (
+						<label className="track_label" key={song_type}>
+							{song_type}
+							<input
+								type="text"
+								className="track_input"
+								value={trackValues[song_type]}
+								name={trackValues[song_type]}
+								onChange={(e) => handleTrackInputs(song_type, e)}
+							/>
+						</label>
+					))}
+				</form>
+			)}
 		</div>
 	);
 };
