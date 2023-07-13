@@ -9,6 +9,12 @@ import { ClipboardDocumentIcon, CheckIcon } from "@heroicons/react/24/solid";
 const Song = ({ song, handleTagClick }) => {
 	const [copied, setCopied] = useState("");
 
+	const handleCopy = () => {
+		setCopied(song.title);
+		navigator.clipboard.writeText(song.title);
+		setTimeout(() => setCopied(""), 3000);
+	};
+
 	return (
 		<div className="song">
 			<div className="text-start">
@@ -21,7 +27,7 @@ const Song = ({ song, handleTagClick }) => {
 				</p>
 			</div>
 
-			<div className="copy_btn" onClick={() => {}}>
+			<div className="copy_btn" onClick={handleCopy}>
 				{copied === song.title ? (
 					<CheckIcon className="copy_icon" />
 				) : (
