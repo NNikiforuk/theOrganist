@@ -36,7 +36,7 @@ const Feed = () => {
 				/>
 			</form>
 
-			<Song_list songs={songs} handleTagClick={() => {}} />
+			<Song_list songs={songs} />
 		</section>
 	);
 };

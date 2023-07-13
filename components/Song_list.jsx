@@ -1,10 +1,10 @@
 import Song from "./Song";
 
-const Song_list = ({ handleTagClick, songs }) => {
+const Song_list = ({ songs }) => {
 	return (
 		<div className="song_list">
 			{songs.map((song) => (
-				<Song key={song._id} song={song} handleTagClick={handleTagClick} />
+				<Song key={song._id} song={song} />
 			))}
 		</div>
 	);
