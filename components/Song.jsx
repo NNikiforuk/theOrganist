@@ -3,11 +3,19 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
-import Image from "next/image";
-import { ClipboardDocumentIcon, CheckIcon } from "@heroicons/react/24/solid";
+import {
+	ClipboardDocumentIcon,
+	CheckIcon,
+	PencilSquareIcon,
+	TrashIcon
+} from "@heroicons/react/24/solid";
 
-const Song = ({ song, handleTagClick }) => {
+const Song = ({ song, handleTagClick, handleEdit, handleDelete }) => {
 	const [copied, setCopied] = useState("");
+
+	const { data: session } = useSession();
+	const pathName = usePathname();
+	const router = useRouter();
 
 	const handleCopy = () => {
 		setCopied(song.title);
@@ -17,23 +25,50 @@ const Song = ({ song, handleTagClick }) => {
 
 	return (
 		<div className="song">
-			<div className="text-start">
-				<p className="song_desc">{song.title}</p>
-				<p
-					onClick={() => handleTagClick && handleTagClick(song.tag)}
-					className="song_tag"
-				>
-					{song.tag}
-				</p>
+			<div className="flex justify-between">
+				<div className="text-start">
+					<p className="song_desc">{song.title}</p>
+					<p
+						onClick={() => handleTagClick && handleTagClick(song.tag)}
+						className="song_tag"
+					>
+						{song.tag}
+					</p>
+				</div>
+
+				<div className="copy_btn" onClick={handleCopy}>
+					{copied === song.title ? (
+						<CheckIcon className="copy_icon " />
+					) : (
+						<ClipboardDocumentIcon className="copy_icon" />
+					)}
+				</div>
 			</div>
 
-			<div className="copy_btn" onClick={handleCopy}>
-				{copied === song.title ? (
-					<CheckIcon className="copy_icon" />
-				) : (
-					<ClipboardDocumentIcon className="copy_icon" />
-				)}
-			</div>
+			{session?.user.id === song.creator._id && pathName === "/profile" && (
+				<div className="song_btns song_desc">
+					<PencilSquareIcon
+						className="song_btn "
+						onClick={handleEdit}
+					>
+						Edit
+					</PencilSquareIcon>
+
+					<TrashIcon className="song_btn" onClick={handleDelete}>
+						Delete
+					</TrashIcon>
+				</div>
+			)}
+			{/* {session?.user.id === song.creator._id && pathName === "/profile" && (
+				<div className="song_btns song_desc">
+					<p className="song_btn text-teal-800" onClick={handleEdit}>
+						Edit
+					</p>
+					<p className="song_btn text-amber-800" onClick={handleDelete}>
+						Delete
+					</p>
+				</div>
+			)} */}
 		</div>
 	);
 };
