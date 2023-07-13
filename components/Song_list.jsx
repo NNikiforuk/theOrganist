@@ -5,7 +5,11 @@ const Song_list = ({ songs, inputValue }) => {
 		if (inputValue === "") {
 			return song;
 		} else {
-			return song.title.toLowerCase().includes(inputValue);
+			return (
+				song.title.toLowerCase().includes(inputValue) ||
+				song.tag.toLowerCase().includes(inputValue) ||
+				song.secondaryTag.toLowerCase().includes(inputValue)
+			);
 		}
 	});
 
