@@ -23,9 +23,11 @@ const MyProfile = () => {
 		fetchSongs();
 	}, []);
 
-	const handleEdit = () => {};
+	const handleEdit = (song) => {
+        router.push(`/update-song?id=${song._id}`)
+    };
 
-	const handleDelete = () => {};
+	const handleDelete = (song) => {};
 
 	return (
 		<Profile

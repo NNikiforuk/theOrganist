@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { periods } from "@utils/periods";
 
-const Form = ({ type, song, setSong, addSong }) => {
+const Form = ({ type, song, setSong, handleSubmit }) => {
 	const choosePeriod = (e) => {
 		setSong({
 			...song,
@@ -18,7 +18,7 @@ const Form = ({ type, song, setSong, addSong }) => {
 				{type} song
 			</h1>
 
-			<form onSubmit={addSong} className="mt-5 xl:mt-20">
+			<form onSubmit={handleSubmit} className="mt-5 xl:mt-20">
 				<label className="text-gray-700 flex flex-col mt-2 text-center">
 					<span className="font-semibold md:text-2xl xl:text-lg">Title</span>
 
