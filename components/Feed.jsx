@@ -5,11 +5,11 @@ import { useState, useEffect } from "react";
 import Song_list from "./Song_list";
 
 const Feed = () => {
-	const [searchText, setSearchText] = useState("");
+	const [inputValue, setInputValue] = useState("");
 	const [songs, setSongs] = useState([]);
 
 	const handleSearch = (e) => {
-		setSearchText(e.target.value);
+		setInputValue(e.target.value.toLowerCase());
 	};
 
 	const fetchSongs = async () => {
@@ -29,15 +29,14 @@ const Feed = () => {
 				<input
 					type="text"
 					placeholder="Search for a song or a tag"
-					value={searchText}
+					value={inputValue}
 					onChange={handleSearch}
 					required
 					className="search_input"
 				/>
 			</form>
 
-			<Song_list songs={songs} />
-			
+			<Song_list songs={songs} inputValue={inputValue} />
 		</section>
 	);
 };

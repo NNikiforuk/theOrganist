@@ -1,12 +1,21 @@
 import Song from "./Song";
 
-const Song_list = ({ songs }) => {
+const Song_list = ({ songs, inputValue }) => {
+	const filteredSongs = songs.filter((song) => {
+		if (inputValue === "") {
+			return song;
+		} else {
+			return song.title.toLowerCase().includes(inputValue);
+		}
+	});
 
-	const sortSongs = [...songs].sort((a, b) => (a.tag > b.tag ? 1 : -1));
+	const sortedSongs = [...filteredSongs].sort((a, b) =>
+		a.tag > b.tag ? 1 : -1
+	);
 
 	return (
 		<div className="song_list">
-			{sortSongs.map((song) => (
+			{sortedSongs.map((song) => (
 				<Song key={song._id} song={song} />
 			))}
 		</div>
