@@ -89,3 +89,14 @@ html {
 	@apply cursor-pointer w-5 h-5 md:h-8 md:w-8 xl:w-7 xl:h-7;
 }
 
+.track {
+	@apply mb-3 flex;
+}
+
+.track_label {
+	@apply text-gray-500 text-sm md:text-2xl xl:text-xl;
+}
+
+.track_input {
+	@apply rounded-lg p-2 text-sm text-gray-500 w-full text-center md:text-2xl md:w-96 xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 bg-transparent border-b-2 border-solid border-x-green-800 font-bold;
+}

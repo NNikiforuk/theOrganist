@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 
 import Song_list from "./Song_list";
+import Track from "./Track";
 
 const Feed = () => {
 	const [inputValue, setInputValue] = useState("");
@@ -25,6 +26,9 @@ const Feed = () => {
 
 	return (
 		<section className="feed">
+
+			<Track />
+
 			<form>
 				<input
 					type="text"
