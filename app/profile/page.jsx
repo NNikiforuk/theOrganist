@@ -28,19 +28,15 @@ const MyProfile = () => {
 	};
 
 	const handleDelete = async (song) => {
-		const hasConfirmed = confirm("Are u sure?");
+		try {
+			await fetch(`/api/song/${song._id.toString()}`, {
+				method: "DELETE",
+			});
 
-		if (hasConfirmed) {
-			try {
-				await fetch(`/api/song/${song._id.toString()}`, {
-					method: "DELETE",
-				});
-
-				const filteredSongs = songs.filter((item) => item._id !== song._id);
-				setSongs(filteredSongs);
-			} catch (error) {
-				console.log(error);
-			}
+			const filteredSongs = songs.filter((item) => item._id !== song._id);
+			setSongs(filteredSongs);
+		} catch (error) {
+			console.log(error);
 		}
 	};
 

@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
-
 import Song from "./Song";
 
 const Song_list = ({ songs }) => {

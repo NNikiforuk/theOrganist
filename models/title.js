@@ -13,6 +13,10 @@ const TitleSchema = new Schema({
 		type: String,
 		required: [true, "Tag is required"],
 	},
+	secondaryTag: {
+		type: String,
+		required: [true, "Tag is required"],
+	},
 });
 
 const Title = models.Title || model("Title", TitleSchema);

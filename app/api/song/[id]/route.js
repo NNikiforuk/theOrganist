@@ -17,7 +17,7 @@ export const GET = async (req, { params }) => {
 };
 
 export const PATCH = async (req, { params }) => {
-	const { title, tag } = await req.json();
+	const { title, tag, secondaryTag } = await req.json();
 
 	try {
 		await connectMongo();
@@ -27,6 +27,7 @@ export const PATCH = async (req, { params }) => {
 
 		existingTitle.title = title;
 		existingTitle.tag = tag;
+		existingTitle.secondaryTag = secondaryTag;
 
 		await existingTitle.save();
 

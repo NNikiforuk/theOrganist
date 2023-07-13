@@ -74,6 +74,10 @@ html {
 .song_desc {
 	@apply text-gray-500 text-sm md:text-2xl xl:text-xl;
 }
+
+.song_tags {
+	@apply flex gap-2;
+}
 .song_tag {
 	@apply font-semibold relative text-sm inline-block rounded-full md:text-2xl xl:text-xl text-gray-500;
 }

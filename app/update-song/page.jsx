@@ -11,17 +11,20 @@ const EditSong = () => {
 	const titleId = searchParams.get("id");
 	const [song, setSong] = useState({
 		title: "",
-		tag: "advent",
+		tag: "",
+		secondaryTag: "",
 	});
 
 	useEffect(() => {
 		const getSongDetails = async () => {
+
 			const response = await fetch(`/api/song/${titleId}`);
 			const data = await response.json();
 
 			setSong({
 				title: data.title,
 				tag: data.tag,
+				secondaryTag: data.secondaryTag,
 			});
 		};
 
@@ -39,6 +42,7 @@ const EditSong = () => {
 				body: JSON.stringify({
 					title: song.title,
 					tag: song.tag,
+					secondaryTag: song.secondaryTag,
 				}),
 			});
 
@@ -52,7 +56,12 @@ const EditSong = () => {
 
 	return (
 		<div>
-			<Form type="Edit" song={song} setSong={setSong} handleSubmit={updateSong} />
+			<Form
+				type="Edit"
+				song={song}
+				setSong={setSong}
+				handleSubmit={updateSong}
+			/>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import { connectMongo } from "@utils/database";
 import Title from "@models/title";
 
 export const POST = async (req) => {
-	const { title, userId, tag } = await req.json();
+	const { title, userId, tag, secondaryTag } = await req.json();
 
 	try {
 		await connectMongo();
@@ -11,6 +11,7 @@ export const POST = async (req) => {
 			creator: userId,
 			title,
 			tag,
+			secondaryTag,
 		});
 
 		await newTitle.save();

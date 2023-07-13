@@ -24,3 +24,34 @@ export const periods = [
 		value: "easter",
 	},
 ];
+
+export const secondaryPeriods = [
+	{
+		label: "Lament",
+		value: "lament",
+	},
+	{
+		label: "Marian",
+		value: "marian",
+	},
+	{
+		label: "Gifts",
+		value: "gifts",
+	},
+	{
+		label: "Service",
+		value: "service",
+	},
+	{
+		label: "Farewell",
+		value: "farewell",
+	},
+	{
+		label: "Thanksgiving",
+		value: "thanksgiving",
+	},
+	{
+		label: "Communion",
+		value: "communion",
+	},
+]

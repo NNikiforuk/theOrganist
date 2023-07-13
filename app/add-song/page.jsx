@@ -12,6 +12,7 @@ const AddSong = () => {
 	const [song, setSong] = useState({
 		title: "",
 		tag: "advent",
+		secondaryTag: "lament",
 	});
 
 	const handleSubmit = async (e) => {
@@ -24,6 +25,7 @@ const AddSong = () => {
 					title: song.title,
 					userId: session?.user.id,
 					tag: song.tag,
+					secondaryTag: song.secondaryTag,
 				}),
 			});
 

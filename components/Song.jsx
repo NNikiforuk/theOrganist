@@ -27,7 +27,10 @@ const Song = ({ song, handleEdit, handleDelete }) => {
 			<div className="flex justify-between">
 				<div className="text-start">
 					<p className="song_desc">{song.title}</p>
-					<p className="song_tag">{song.tag}</p>
+					<div className="song_tags">
+						<p className="song_tag">{song.tag}</p>
+						<p className="song_tag">{song.secondaryTag}</p>
+					</div>
 				</div>
 
 				<div className="copy_btn" onClick={handleCopy}>
