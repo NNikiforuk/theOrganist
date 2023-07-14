@@ -23,7 +23,7 @@ const Track = () => {
 			[song_type]: e.target.value,
 		}));
 
-		console.log(trackValues)
+		console.log(trackValues);
 	};
 
 	return (
