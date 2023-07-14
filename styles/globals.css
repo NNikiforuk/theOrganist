@@ -99,6 +99,10 @@ html {
 	@apply rounded-lg p-2 text-sm text-gray-500 w-full text-center md:text-2xl md:w-96 xl:text-sm xl:w-96 xl:my-0 xl:mx-auto xl:mt-5 bg-transparent border-b-2 border-solid border-x-green-800 font-bold;
 }
 
+.track_icons {
+	@apply flex justify-center items-center w-full;
+}
+
 .track_icon {
 	@apply w-9 h-9 text-gray-400 cursor-pointer md:w-14 md:h-14;
 }

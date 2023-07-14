@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getProviders, signIn, signOut, useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { Bars3Icon, UserIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon, UserCircleIcon } from "@heroicons/react/24/solid";
 
 const Nav = () => {
 	const { data: session } = useSession();
@@ -108,7 +108,7 @@ const Nav = () => {
 							</button>
 
 							<Link href="/profile">
-								<UserIcon className="h-10 w-10 text-stone-700 xl:hover:text-black" />
+								<UserCircleIcon className="h-10 w-10 text-stone-700 xl:hover:text-black" />
 							</Link>
 						</div>
 					) : (

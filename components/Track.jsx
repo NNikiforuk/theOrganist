@@ -22,13 +22,11 @@ const Track = () => {
 			...prevValues,
 			[song_type]: e.target.value,
 		}));
-
-		console.log(trackValues);
 	};
 
 	return (
 		<div className="track">
-			<div className="flex justify-center items-center w-full">
+			<div className="track_icons">
 				<TrackIcon
 					className="track_icon"
 					onClick={() => setToggleTrack((prev) => !prev)}

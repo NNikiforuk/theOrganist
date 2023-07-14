@@ -14,9 +14,6 @@ const UserSchema = new Schema({
 			"Username invalid, it should contain 8-20 alphanumeric letters and be unique!",
 		],
 	},
-	image: {
-		type: String,
-	},
 });
 
 const User = models.User || model("User", UserSchema);
