@@ -73,7 +73,7 @@ const Form = ({ type, song, setSong, handleSubmit }) => {
 								<option
 									key={secondaryPeriod.value}
 									value={secondaryPeriod.value}
-									className=" md:text-sm"
+									className="md:text-sm text-center"
 								>
 									{secondaryPeriod.label}
 								</option>

@@ -54,4 +54,8 @@ export const secondaryPeriods = [
 		label: "Communion",
 		value: "communion",
 	},
-]
+	{
+		label: "Entrance",
+		value: "entrance",
+	},
+];
