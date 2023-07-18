@@ -1,6 +1,7 @@
 <h1 align="center">
   <br>
-  <a href="https://theorganist.vercel.app" target="_blank"><p>theOrganist</p></a>
+  <a href="https://the-organist-git-main-nnikiforuk.vercel.app" target="_blank"><p>theOrganist</p></a>
+  <p>Right now I am having a problem with authorization and vercel </p>
   <br>
 </h1>
 
