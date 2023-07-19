@@ -4,7 +4,7 @@
   
   <br>
 </h1>
-<p align="center">(Right now I am having a problem with authorization and vercel) </p>
+
 
 <h4 align="center">App for organists that helps to organize track list for ceremonies in roman catholic church</h4>
 <h4 align="center"> <a href="https://the-organist-git-main-nnikiforuk.vercel.app" target="_blank">Click to see the project</a> </h4>
